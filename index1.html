@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather Forecast App</title>
+
+    <link rel="stylesheet" type="text/css" href="Style1.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+
+  </head>
+
+  <body onload="startTime(), GetWeather(DefaultPlace)">
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a href="#" class="navbar-brand"><i class="ri-flashlight-line"></i><span>Weather App</span></a>
+          <form class="d-flex" role="search" onsubmit="event.preventDefault();">
+            <input class="form-control me-2" type="search" id="Search_Place" placeholder="Enter Place Name" aria-label="Search">
+            <button class="btn btn-outline-success mr-4" type="submit" id="SearchButton">Search</button>
+            <!-- <br> -->
+            <p id="ErrorMsg" class="ml-10"></p>
+          </form>
+        </div>
+      </nav>
+
+
+
+
+    <div class="Weather_Container">
+
+      <div class="CurrentWeather_Container">
+
+          <div class="CurrentWeather">
+
+              <div class="DateTime_Container">
+                  <p id="Date">Date</p>
+                  <p id="Time">Time</p>
+              </div>
+
+              <h3 id="Place_Name">Place Name</h3>
+              <div class="Weather_Details">
+
+                  <div class="Weather_Item" id="WeatherConditionBox">
+                      <h5>Condition <i class="fa-solid fa-cloud"></i></h5>
+                      <p id="Condition"> </p>
+                      <div id="ConditionIcon"></div>
+                  </div>
+
+                  <div class="Weather_Item">
+                      <h5>Temperature <i class="fa-solid fa-temperature-full"></i></h5>
+                      <p> <span id="Temperature"></span>&deg;C</p>
+                  </div>
+
+                  <div class="Weather_Item">
+                      <h5>Humidity <i class="fa-solid fa-fire-flame-simple"></i></h5>
+                      <p><span id="Humidity"></span>&percnt;</p>
+                  </div>
+
+                  <div class="Weather_Item">
+                      <h5>Wind Speed <i class="fa-solid fa-wind"></i></h5>
+                      <p><span id="WindSpeed"></span> Km/h</p>
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+      <div class="WeatherForecast_Container">
+          <div class="WeatherForeCast">
+
+              <div class="ForeCastItem">
+                  <h5 id="Day1"></h5>
+                  <div class="ForeCastItem-Details">
+                      <div id="Day1ConditionBox" class="ConditionBox"> </div>
+                      <p>Temperature<span id="Day1Temperature"></span></p>
+                      <p>Humidity<span id="Day1Humidity"></span></p>
+                      <p>Wind Speed<span id="Day1Wind"></span></p>
+                  </div>
+              </div>
+
+              <div class="ForeCastItem">
+                  <h5 id="Day2"></h5>
+                  <div class="ForeCastItem-Details">
+                      <div id="Day2ConditionBox" class="ConditionBox"> </div>
+                      <p>Temperature<span id="Day2Temperature"></span></p>
+                      <p>Humidity<span id="Day2Humidity"></span></p>
+                      <p>Wind Speed<span id="Day2Wind"></span></p>
+                  </div>
+              </div>
+
+              <div class="ForeCastItem">
+                  <h5 id="Day3"></h5>
+                  <div class="ForeCastItem-Details">
+                      <div id="Day3ConditionBox" class="ConditionBox"> </div>
+                      <p>Temperature<span id="Day3Temperature"></span></p>
+                      <p>Humidity<span id="Day3Humidity"></span></p>
+                      <p>Wind Speed<span id="Day3Wind"></span></p>
+                  </div>
+              </div>
+
+              <div class="ForeCastItem">
+                  <h5 id="Day4"></h5>
+                  <div class="ForeCastItem-Details">
+                      <div id="Day4ConditionBox" class="ConditionBox"> </div>
+                      <p>Temperature<span id="Day4Temperature"></span></p>
+                      <p>Humidity<span id="Day4Humidity"></span></p>
+                      <p>Wind Speed<span id="Day4Wind"></span></p>
+                  </div>
+              </div>
+
+              <div class="ForeCastItem">
+                  <h5 id="Day5"></h5>
+                  <div class="ForeCastItem-Details">
+                      <div id="Day5ConditionBox" class="ConditionBox"> </div>
+                      <p>Temperature<span id="Day5Temperature"></span></p>
+                      <p>Humidity<span id="Day5Humidity"></span></p>
+                      <p>Wind Speed<span id="Day5Wind"></span></p>
+                  </div>
+              </div>
+
+              <!-- <div class="ForeCastItem">
+                <h5 id="Day6"></h5>
+                <div class="ForeCastItem-Details">
+                    <div id="Day5ConditionBox" class="ConditionBox"> </div>
+                    <p>Temperature<span id="Day6Temperature"></span></p>
+                    <p>Humidity<span id="Day6Humidity"></span></p>
+                    <p>Wind Speed<span id="Day6Wind"></span></p>
+                </div>
+              </div> -->
+          </div>
+
+      </div>
+
+  </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+
+
+
+    <footer class="footer_main">
+        <div class="footer-content mt-10">
+            <h5><i class="ri-flashlight-line"></i><span>Weather App</span>
+        </div>
+        <div class="DesignerInfo">
+            <p>Designed and Developed By <span id="Name">Himanshu Mude</span></p>
+        </div>
+        <div class="SocialMedia">
+            <a href="" target="_blank" title="Github-Profile"><i class="ri-github-fill"></i>
+            <a href="" target="_blank" title="Linkdin-Profile"><i class="ri-linkedin-box-fill"></i>
+            <a href="" target="_blank" title="Instagram-Profile"><i class="ri-instagram-fill"></i>
+        </div>
+    </footer>
+
+
+    <script src="script1.js"></script>
+
+  </body>
+</html>

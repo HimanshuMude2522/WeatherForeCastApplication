@@ -1,0 +1,290 @@
+*
+{
+   margin: 0;
+   padding: 0; 
+   box-sizing: border-box;
+   font-family:'Poppins', sans-serif;
+   text-decoration: none;
+   list-style: none;
+}
+body{
+  background-image: url(Images/img3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+
+
+
+/* Weather_Container Style  */
+.Weather_Container{
+  margin: 1em 0em;
+  width: 100%;
+  height: 90vh;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.CurrentWeather_Container{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  width: 30%;
+  height: 100%;
+  background-color: #1c538e79;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.CurrentWeather_Container .CurrentWeather{
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  text-align: center;
+}
+
+.CurrentWeather_Container .CurrentWeather .DateTime_Container{
+  border-bottom: 2px solid white;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0em 0.8em;
+}
+#Place_Name{
+  width: 80%;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: rgba(128, 128, 128, 0.281);
+}
+.Weather_Details{
+  width: 95%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1em;
+
+  padding: 0.5em;
+}
+.Weather_Item{
+  background-color: rgba(128, 128, 128, 0.281);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.2em;
+}
+.Weather_Item p{
+  height: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#WeatherConditionBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h5{
+  font-size: 12px;
+  border-bottom: 1px solid white;
+  padding: 0.5em;
+  width: 100%;
+  text-align: center;
+}
+h5 i{
+  font-size: 15px;
+  margin-left: 5px;
+}
+.WeatherForecast_Container{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  background-color: hsla(132, 5%, 22%, 0.267);
+  width: 70%;
+  height: 105%;
+}
+.WeatherForecast_Container .WeatherForeCast{
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  padding: 0.5em;
+  gap: 0.5em;
+}
+.WeatherForeCast .ForeCastItem{
+  background-color: rgba(128, 128, 128, 0.116);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.WeatherForeCast .ForeCastItem:hover{
+  transform: scale(0.95);
+}
+
+
+.footer_main{
+  margin-top: 5rem;
+}
+
+.ForeCastItem .ForeCastItem-Details{
+  width: 100%;
+  height: 90%;
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.2em;
+}
+
+.ForeCastItem .ForeCastItem-Details p, .ConditionBox{
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-direction: column;
+  padding: 1em 0em;
+  gap: 0.4em;
+  background-color: rgba(249, 246, 252, 0.144);
+}
+.ForeCastItem .ForeCastItem-Details .ConditionBox p{
+  background-color: transparent;
+}
+.WeatherForeCast .ForeCastItem .ForeCastItem-Details .ConditionBox img{
+  width: 50px;
+
+}
+#ConditionIcon img{
+  width: 50px;
+
+}
+
+
+@media screen and (max-width: 768px) and (min-width: 120px) {
+  .Weather_Container{
+      height: 320vh;
+      flex-direction: column;
+      padding: 0.5em 0em;
+  }
+  
+  .CurrentWeather_Container{
+      width: 100%;
+      height: 35%;
+  }
+  
+  .WeatherForecast_Container{
+      width: 100%;
+      height: 65%;
+  }
+  .WeatherForecast_Container .WeatherForeCast{
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 2fr);
+  }
+ 
+  
+  .ForeCastItem .ForeCastItem-Details{
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer_main{
+      margin-top: 70rem;
+  }
+}
+
+
+@media screen and (max-width: 1023px) and (min-width: 769px) {
+  .CurrentWeather_Container{
+      width: 40%;
+  }
+ 
+   .Weather_Details{
+      grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .WeatherForecast_Container{
+      width: 60%;
+  }
+  .WeatherForecast_Container .WeatherForeCast{
+      grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+
+footer{ 
+    background: #111;
+    height: 10vh;
+    width: 100vw;
+    font-family: "Open Sans" ;
+    padding-top: 5px;
+    color: white;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 0.5em;
+}
+  footer .footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0em;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0em;
+  }
+  footer .DesignerInfo {
+    width: 50%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0em;
+  }
+  footer .DesignerInfo #Name {
+    color: rgb(154, 162, 180);
+    font-size: 20px;
+  }
+  footer .SocialMedia {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 20%;
+    height: 100%;
+  }
+   footer .SocialMedia a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0em;
+    padding: 0.5em;
+    color: white;
+    font-size: 1.5rem;
+  }
+  footer .SocialMedia a:hover i {
+    transform: scale(1.3);
+    color: #02cbfd;
+  }
